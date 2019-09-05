@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : plasma-vault
-Version  : 5.16.4
-Release  : 22
-URL      : https://download.kde.org/stable/plasma/5.16.4/plasma-vault-5.16.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.16.4/plasma-vault-5.16.4.tar.xz
-Source1 : https://download.kde.org/stable/plasma/5.16.4/plasma-vault-5.16.4.tar.xz.sig
+Version  : 5.16.5
+Release  : 23
+URL      : https://download.kde.org/stable/plasma/5.16.5/plasma-vault-5.16.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.16.5/plasma-vault-5.16.5.tar.xz
+Source1 : https://download.kde.org/stable/plasma/5.16.5/plasma-vault-5.16.5.tar.xz.sig
 Summary  : Plasma applet and services for creating encrypted vaults
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.0 LGPL-2.1
@@ -64,16 +64,17 @@ locales components for the plasma-vault package.
 
 
 %prep
-%setup -q -n plasma-vault-5.16.4
+%setup -q -n plasma-vault-5.16.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1564515001
+export SOURCE_DATE_EPOCH=1567651355
 mkdir -p clr-build
 pushd clr-build
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -87,7 +88,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1564515001
+export SOURCE_DATE_EPOCH=1567651355
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/plasma-vault
 cp COPYING %{buildroot}/usr/share/package-licenses/plasma-vault/COPYING
