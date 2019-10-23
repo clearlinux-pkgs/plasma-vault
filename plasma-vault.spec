@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : plasma-vault
-Version  : 5.17.0
-Release  : 24
-URL      : https://download.kde.org/stable/plasma/5.17.0/plasma-vault-5.17.0.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.17.0/plasma-vault-5.17.0.tar.xz
-Source1 : https://download.kde.org/stable/plasma/5.17.0/plasma-vault-5.17.0.tar.xz.sig
+Version  : 5.17.1
+Release  : 25
+URL      : https://download.kde.org/stable/plasma/5.17.1/plasma-vault-5.17.1.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.17.1/plasma-vault-5.17.1.tar.xz
+Source1 : https://download.kde.org/stable/plasma/5.17.1/plasma-vault-5.17.1.tar.xz.sig
 Summary  : Plasma applet and services for creating encrypted vaults
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.0 LGPL-2.1
@@ -23,6 +23,7 @@ BuildRequires : buildreq-kde
 BuildRequires : kactivities-dev
 BuildRequires : libksysguard-dev
 BuildRequires : plasma-framework-dev
+BuildRequires : util-linux
 
 %description
 Plasma Applet mixed C++/QML Template
@@ -64,14 +65,14 @@ locales components for the plasma-vault package.
 
 
 %prep
-%setup -q -n plasma-vault-5.17.0
+%setup -q -n plasma-vault-5.17.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571165058
+export SOURCE_DATE_EPOCH=1571804253
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -88,12 +89,12 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1571165058
+export SOURCE_DATE_EPOCH=1571804253
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/plasma-vault
-cp %{_builddir}/plasma-vault-5.17.0/COPYING %{buildroot}/usr/share/package-licenses/plasma-vault/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/plasma-vault-5.17.0/COPYING.LGPL-2 %{buildroot}/usr/share/package-licenses/plasma-vault/ba8966e2473a9969bdcab3dc82274c817cfd98a1
-cp %{_builddir}/plasma-vault-5.17.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/plasma-vault/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/plasma-vault-5.17.1/COPYING %{buildroot}/usr/share/package-licenses/plasma-vault/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/plasma-vault-5.17.1/COPYING.LGPL-2 %{buildroot}/usr/share/package-licenses/plasma-vault/ba8966e2473a9969bdcab3dc82274c817cfd98a1
+cp %{_builddir}/plasma-vault-5.17.1/COPYING.LIB %{buildroot}/usr/share/package-licenses/plasma-vault/01a6b4bf79aca9b556822601186afab86e8c4fbf
 pushd clr-build
 %make_install
 popd

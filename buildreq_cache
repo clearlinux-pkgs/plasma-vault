@@ -1,4 +1,4 @@
-5.17.0
+5.17.1
 kactivities-dev
 kdbusaddons-dev
 kpackage-dev
@@ -6,3 +6,4 @@ kwindowsystem-dev
 libksysguard-dev
 networkmanager-qt-dev
 plasma-framework-dev
+util-linux
