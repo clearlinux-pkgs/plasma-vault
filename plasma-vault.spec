@@ -6,7 +6,7 @@
 #
 Name     : plasma-vault
 Version  : 5.19.0
-Release  : 36
+Release  : 37
 URL      : https://download.kde.org/stable/plasma/5.19.0/plasma-vault-5.19.0.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.19.0/plasma-vault-5.19.0.tar.xz
 Source1  : https://download.kde.org/stable/plasma/5.19.0/plasma-vault-5.19.0.tar.xz.sig
