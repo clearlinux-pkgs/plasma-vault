@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : plasma-vault
-Version  : 5.18.5
-Release  : 35
-URL      : https://download.kde.org/stable/plasma/5.18.5/plasma-vault-5.18.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.18.5/plasma-vault-5.18.5.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.18.5/plasma-vault-5.18.5.tar.xz.sig
+Version  : 5.19.0
+Release  : 36
+URL      : https://download.kde.org/stable/plasma/5.19.0/plasma-vault-5.19.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.19.0/plasma-vault-5.19.0.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.19.0/plasma-vault-5.19.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.0 LGPL-2.1
@@ -21,6 +21,7 @@ BuildRequires : NetworkManager-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : kactivities-dev
+BuildRequires : kirigami2-dev
 BuildRequires : libksysguard-dev
 BuildRequires : plasma-framework-dev
 
@@ -64,15 +65,15 @@ locales components for the plasma-vault package.
 
 
 %prep
-%setup -q -n plasma-vault-5.18.5
-cd %{_builddir}/plasma-vault-5.18.5
+%setup -q -n plasma-vault-5.19.0
+cd %{_builddir}/plasma-vault-5.19.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1588706063
+export SOURCE_DATE_EPOCH=1591730602
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -88,12 +89,12 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1588706063
+export SOURCE_DATE_EPOCH=1591730602
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/plasma-vault
-cp %{_builddir}/plasma-vault-5.18.5/COPYING %{buildroot}/usr/share/package-licenses/plasma-vault/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/plasma-vault-5.18.5/COPYING.LGPL-2 %{buildroot}/usr/share/package-licenses/plasma-vault/ba8966e2473a9969bdcab3dc82274c817cfd98a1
-cp %{_builddir}/plasma-vault-5.18.5/COPYING.LIB %{buildroot}/usr/share/package-licenses/plasma-vault/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/plasma-vault-5.19.0/COPYING %{buildroot}/usr/share/package-licenses/plasma-vault/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/plasma-vault-5.19.0/COPYING.LGPL-2 %{buildroot}/usr/share/package-licenses/plasma-vault/ba8966e2473a9969bdcab3dc82274c817cfd98a1
+cp %{_builddir}/plasma-vault-5.19.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/plasma-vault/01a6b4bf79aca9b556822601186afab86e8c4fbf
 pushd clr-build
 %make_install
 popd
@@ -106,7 +107,6 @@ popd
 %defattr(-,root,root,-)
 /usr/share/kservices5/plasma-applet-org.kde.plasma.vault.desktop
 /usr/share/metainfo/org.kde.plasma.vault.appdata.xml
-/usr/share/plasma/plasmoids/org.kde.plasma.vault/contents/ui/ActionItem.qml
 /usr/share/plasma/plasmoids/org.kde.plasma.vault/contents/ui/VaultItem.qml
 /usr/share/plasma/plasmoids/org.kde.plasma.vault/contents/ui/main.qml
 /usr/share/plasma/plasmoids/org.kde.plasma.vault/metadata.desktop
