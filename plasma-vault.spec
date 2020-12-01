@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : plasma-vault
-Version  : 5.20.3
-Release  : 44
-URL      : https://download.kde.org/stable/plasma/5.20.3/plasma-vault-5.20.3.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.20.3/plasma-vault-5.20.3.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.20.3/plasma-vault-5.20.3.tar.xz.sig
+Version  : 5.20.4
+Release  : 45
+URL      : https://download.kde.org/stable/plasma/5.20.4/plasma-vault-5.20.4.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.20.4/plasma-vault-5.20.4.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.20.4/plasma-vault-5.20.4.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.0 LGPL-2.1
@@ -64,15 +64,15 @@ locales components for the plasma-vault package.
 
 
 %prep
-%setup -q -n plasma-vault-5.20.3
-cd %{_builddir}/plasma-vault-5.20.3
+%setup -q -n plasma-vault-5.20.4
+cd %{_builddir}/plasma-vault-5.20.4
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1605059614
+export SOURCE_DATE_EPOCH=1606843805
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -88,12 +88,12 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1605059614
+export SOURCE_DATE_EPOCH=1606843805
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/plasma-vault
-cp %{_builddir}/plasma-vault-5.20.3/COPYING %{buildroot}/usr/share/package-licenses/plasma-vault/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/plasma-vault-5.20.3/COPYING.LGPL-2 %{buildroot}/usr/share/package-licenses/plasma-vault/ba8966e2473a9969bdcab3dc82274c817cfd98a1
-cp %{_builddir}/plasma-vault-5.20.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/plasma-vault/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/plasma-vault-5.20.4/COPYING %{buildroot}/usr/share/package-licenses/plasma-vault/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/plasma-vault-5.20.4/COPYING.LGPL-2 %{buildroot}/usr/share/package-licenses/plasma-vault/ba8966e2473a9969bdcab3dc82274c817cfd98a1
+cp %{_builddir}/plasma-vault-5.20.4/COPYING.LIB %{buildroot}/usr/share/package-licenses/plasma-vault/01a6b4bf79aca9b556822601186afab86e8c4fbf
 pushd clr-build
 %make_install
 popd
