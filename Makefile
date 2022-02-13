@@ -1,5 +1,5 @@
 PKG_NAME := plasma-vault
-URL = https://download.kde.org/stable/plasma/5.23.5/plasma-vault-5.23.5.tar.xz
+URL = https://download.kde.org/stable/plasma/5.24.0/plasma-vault-5.24.0.tar.xz
 ARCHIVES = 
 
 include ../common/Makefile.common
